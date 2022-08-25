@@ -1,0 +1,103 @@
+:root {
+  background: #f1f1f3;
+  font-family: sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+
+  --blue: #0000ff;
+  --gray: #d3d3d3;
+}
+
+.sidebar_container {
+  height: 100vh;
+  border-right: 1px solid var(--gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
+.App {
+  display: flex;
+  width: 100%;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: var(--blue);
+}
+
+.title {
+  font-weight: 400;
+}
+
+.container_list {
+  width: 100%;
+  padding-left: 25px;
+}
+
+input {
+  padding: 20px;
+  font-size: 1.1rem;
+  border: none;
+  width: 100%;
+  border-radius: 8px;
+  background: var(--gray);
+}
+
+input::placeholder {
+  color: #303030;
+}
+
+.button_list {
+  
+  border: none;
+  background: none;
+}
+
+.icon_plus {
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.card_list {
+  padding: 5px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: 1px solid var(--blue);
+  width: 100%;
+}
+
+.container_card {
+ 
+  width: 87%;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.grid {
+  margin-left: 20px;
+}
+
+.container_title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.selected {
+  color: var(--blue);
+}
