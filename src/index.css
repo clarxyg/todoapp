@@ -101,3 +101,7 @@ input::placeholder {
 .selected {
   color: var(--blue);
 }
+
+.gap {
+  margin-top: 20px;
+}
