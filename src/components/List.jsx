@@ -1,19 +1,20 @@
 import { CheckSquare, Plus, Trash } from "phosphor-react";
-import { useGet, useTask } from "../Hooks/useCrud";
+import { useState } from "react";
+import { useCrud } from "../Hooks/useCrud";
 import { SideBar } from "./Siderbar";
 import { Title } from "./Title";
 
 
 
 export function List() {
-    const [list, handleList] = useGet()
-    const [task, setTask] = useTask()
+    const [list, handleList, handleDelete] = useCrud() // chamada de custom hook com os seus respectivos retornos
+    const [task, setTask] = useState('') 
 
 
     return (
         <div className="App">
             <SideBar />
-            <div className="container_list">
+            <form className="container_list" onSubmit={(event) => event.preventDefault()}> 
                 <div className="container_title">
                     <Title title="Lista de tarefas" />
                     <h1 style={{ fontWeight: 400, fontSize: '1.5rem' }}>
@@ -21,13 +22,18 @@ export function List() {
                     </h1>
                 </div>
                 <div style={{ display: 'flex', marginBottom: '100px' }}>
-                    <input placeholder="Digite aqui uma tarefa" onChange={event => setTask(event.target.value)}/>
+                    <input 
+                    placeholder="Digite aqui uma tarefa" 
+                    value={task || ''} // o valor pode ser ou task (nova tarefa) ou uma string vazia
+                    onChange={event => setTask(event.target.value)} />
                     <button className="button_list">
-                        <Plus size={28} className="icon_plus" onClick={() => handleList(task)}/>
+                        {/* No onClick abaixo eu chamo duas funções, uma que atualiza o meu input para string vazia (limpando o texto) depois de enviado
+                            e a função que salva a nova tarefa e atualiza a lista. */}
+                        <Plus size={28} className="icon_plus" onClick={() => { setTask(''); handleList(task) }} /> 
                     </button>
                 </div>
-                {list.map((text, index) => (
-                    <div className="gap" key={text}>
+                {list.map((text) => (  // o método map é utilizado para percorrer um array e no react precisamos definir uma unique key para uma tag percorrida, para que browser reconheça que cada elemento é único
+                    <div className="gap" key={text}>  
                         <div className="container">
                             <div className="container_card">
                                 <div className="card_list">
@@ -38,13 +44,13 @@ export function List() {
                             </div>
                             <div className="grid">
                                 <CheckSquare size={28} className="icon" />
-                                <Trash size={28} className="icon"/>
+                                <Trash size={28} className="icon" onClick={() => handleDelete()}/> 
                             </div>
                         </div>
                     </div>
                 ))}
-            </div>
-        </div>
+                </form>
+                </div>
 
-    )
+                )
 }   
