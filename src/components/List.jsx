@@ -7,7 +7,7 @@ import { Title } from "./Title";
 
 
 export function List() {
-    const [list, handleList, handleDelete] = useCrud() // chamada de custom hook com os seus respectivos retornos
+    const [list, handleList, handleDelete, handleComplete] = useCrud() // chamada de custom hook com os seus respectivos retornos
     const [task, setTask] = useState('') 
 
 
@@ -32,19 +32,19 @@ export function List() {
                         <Plus size={28} className="icon_plus" onClick={() => { setTask(''); handleList(task) }} /> 
                     </button>
                 </div>
-                {list.map((text) => (  // o método map é utilizado para percorrer um array e no react precisamos definir uma unique key para uma tag percorrida, para que browser reconheça que cada elemento é único
-                    <div className="gap" key={text}>  
+                {list.map((text, index) => (  // o método map é utilizado para percorrer um array e no react precisamos definir uma unique key para uma tag percorrida, para que browser reconheça que cada elemento é único
+                    <div className="gap" key={index}>  
                         <div className="container">
                             <div className="container_card">
                                 <div className="card_list">
-                                    <p style={{ paddingLeft: '15px' }}>
-                                        {text}
+                                    <p style={{ paddingLeft: '15px' }} className={text.isComplete ? 'complete' : ''}>
+                                        {text.task}
                                     </p>
                                 </div>
                             </div>
                             <div className="grid">
-                                <CheckSquare size={28} className="icon" />
-                                <Trash size={28} className="icon" onClick={() => handleDelete()}/> 
+                                <CheckSquare size={28} className="icon" onClick={() => handleComplete(index)}/>
+                                <Trash size={28} className="icon" onClick={() => handleDelete(index)}/> 
                             </div>
                         </div>
                     </div>
