@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 
 
@@ -12,6 +13,9 @@ export function useCrud() {
     }
     if (task != '') { // utilizo da condicional 'if' para verificar se há algum valor diferente de string vazia ('') no meu input, se sim, então chamo a função setList para atualizar a minha lista com uma nova tarefa
       setList([...(list || []), newTask]) // o spread operator [...list] é utilizado para pegar uma cópia do estado inicial da minha lista que nesse caso é um array vazio. em seguida eu recebo task que popula list
+      toast.success('Enviada com sucesso!')
+    } else {
+      toast.error('Escreva alguma coisa para enviar')
     }
   }
 

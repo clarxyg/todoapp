@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom"
-import { List } from "./components/List"
-import { SideBar } from "./components/Siderbar"
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.min.css'
 import Router from "./routes"
 
 
@@ -11,6 +11,7 @@ function App() {
       <BrowserRouter>
         <Router />
       </BrowserRouter>
+      <ToastContainer />
     </div>
   )
 }
