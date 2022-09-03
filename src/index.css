@@ -23,9 +23,22 @@
   gap: 10px;
 }
 
+@media (max-width: 768px) {
+  .sidebar_container {
+    flex-direction: row;
+    height: 100%;
+  }
+}
+
 .App {
   display: flex;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .App {
+    flex-direction: column;
+  }
 }
 
 .icon {
@@ -43,6 +56,13 @@
 .container_list {
   width: 100%;
   padding-left: 25px;
+}
+
+@media (max-width: 768px) {
+  .container_list {
+    padding-left: unset;
+    padding: 5px;
+  }
 }
 
 input {
@@ -96,6 +116,13 @@ input::placeholder {
   display: flex;
   align-items: center;
   gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .container_title {
+    flex-direction: column;
+    gap: 5px;
+  }
 }
 
 .selected {
