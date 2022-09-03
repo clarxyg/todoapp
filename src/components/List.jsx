@@ -17,7 +17,7 @@ export function List() {
             <form className="container_list" onSubmit={(event) => event.preventDefault()}> 
                 <div className="container_title">
                     <Title title="Lista de tarefas" />
-                    <h1 style={{ fontWeight: 400, fontSize: '1.5rem' }}>
+                    <h1 className="pomodoro-indicator">
                         00:00
                     </h1>
                 </div>

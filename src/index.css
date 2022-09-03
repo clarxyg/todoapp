@@ -53,6 +53,23 @@
   font-weight: 400;
 }
 
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.3rem;
+  }
+}
+
+.pomodoro-indicator {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .pomodoro-indicator {
+    font-size: 1.2rem;
+  }
+}
+
 .container_list {
   width: 100%;
   padding-left: 25px;
@@ -120,8 +137,9 @@ input::placeholder {
 
 @media (max-width: 768px) {
   .container_title {
-    flex-direction: column;
-    gap: 5px;
+    gap: 10px;
+    justify-content: center;
+    padding-bottom: 20px;
   }
 }
 
