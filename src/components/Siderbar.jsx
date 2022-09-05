@@ -1,17 +1,20 @@
 import { CalendarCheck, Clock } from "phosphor-react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 
 
 export function SideBar() {
+    const [isActive, setActive] = useState(true)
+
     return (
         <div className="sidebar_container">
-            <Link to="/" style={{ color: 'black' }}>
+            <NavLink to="/" style={({ isActive }) => (isActive ? {color: 'blue'} : {color: 'black'})}>
                 <CalendarCheck size={32} className="icon" />
-            </Link>
-            <Link to="/pomodoro" style={{ color: 'black' }}>
+            </NavLink>
+            <NavLink to="/pomodoro" style={({ isActive }) => (isActive ? {color: 'blue'} : {color: 'black'})}>
                 <Clock size={32} className="icon" />
-            </Link>
+            </NavLink>
         </div>
     )
 }
